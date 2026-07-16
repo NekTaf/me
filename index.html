@@ -614,8 +614,11 @@ canvas { outline: none; }
             const maxW = window.innerWidth * 0.85;
             sidePanel.style.width = Math.max(minW, Math.min(maxW, px)) + 'px';
         }
-        setPanelWidth(window.innerWidth * 0.3);
-
+        if (window.innerWidth < 768) {
+            setPanelWidth(window.innerWidth * 0.85);
+        } else {
+            setPanelWidth(window.innerWidth * 0.3);
+        }
         let isResizingPanel = false;
         let resizeStartX = 0;
         let resizeStartWidth = 0;
