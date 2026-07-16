@@ -103,7 +103,7 @@ canvas { outline: none; }
         </nav> -->
 
         <!-- Bottom Playback Controls -->
-        <footer class="hidden flex items-end md:items-center justify-start gap-4 pointer-events-auto w-full">
+        <footer class="fixed bottom-6 left-6 z-30 pointer-events-auto">
             <div class="flex items-center gap-4 bg-neutral-900/60 backdrop-blur-xl border border-white/10 rounded-full px-5 py-3 shadow-2xl">
                 <button id="play-pause" class="text-white hover:text-indigo-400 transition-colors flex items-center">
                     <iconify-icon id="play-icon" icon="solar:pause-linear" width="24" height="24" stroke-width="1.5"></iconify-icon>
@@ -114,7 +114,7 @@ canvas { outline: none; }
                         <span>SPEED</span>
                         <span id="speed-val">0.5x</span>
                     </div>
-                    <input type="range" id="speed-slider" min="0" max="2" step="0.1" value="0.5" class="w-full h-1 bg-white/20 rounded-lg appearance-none cursor-pointer">
+                    <input type="range" id="speed-slider" min="0" max="10" step="0.1" value="0.5" class="w-full h-1 bg-white/20 rounded-lg appearance-none cursor-pointer">
                 </div>
             </div>
         </footer>
@@ -557,7 +557,7 @@ canvas { outline: none; }
         const playPauseBtn = document.getElementById('play-pause');
         const playIcon = document.getElementById('play-icon');
         const speedSlider = document.getElementById('speed-slider');
-        //const speedVal = document.getElementById('speed-val');
+        const speedVal = document.getElementById('speed-val');
         const toggleOrbitBtn = document.getElementById('toggle-orbit');
 
         let isPaused = false;
