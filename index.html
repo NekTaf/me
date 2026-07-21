@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- <meta name="viewport" content="width=1200"> -->
-<title>NekTaf — Interactive CV</title>
+<title>Nektarios Tafanidis</title>
+<link rel="icon" type="image/png" href="images/avatar.png">
 <!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
 <!-- Iconify -->
@@ -189,9 +190,10 @@ canvas { outline: none; }
         // "Sun" now represents the person — click it for the about-me panel
         const sunInfo = {
             name: "Nektarios Aristeidis Tafanidis",
+            layout:"tiles",
             // type: "About Me",
-            image: "/images/me.jpeg",
-            desc: "My name is Nektarios, and I am currently a PhD candidate at Luleå University of Technology in Sweden, where I conduct research in space autonomy and robotics using reinforcement learning. My work focuses on developing intelligent and safe autonomous systems for future space missions.\n\nI hold an MSc in Autonomous Vehicle Dynamics and Control from Cranfield University and a BEng in Electrical and Electronic Engineering from Newcastle University.\n\n ",            
+            image: "images/me.jpeg",
+            desc: "My name is Nektarios, and I am currently a PhD candidate at Luleå University of Technology in northern Sweden, where I conduct research in space autonomy and robotics using reinforcement learning. My work focuses on developing intelligent and safe autonomous systems for future space missions.\n\nI have a background in aerospace and electrical and electronic engineering and hold a MSc in Autonomous Vehicle Dynamics and Control from Cranfield University and a BEng in Electrical and Electronic Engineering from Newcastle University.\n\n In my free time, I practice fencing (épée) and kendo and go mountain biking. I am also passionate about history and paleontology, and I enjoy playing real-time strategy (RTS) games. ",            
             links: [
                 {
                     title: "Email",
@@ -199,30 +201,36 @@ canvas { outline: none; }
                     value: "mail@natafanidis.com",
                     icon: "solar:letter-linear",
                     copy: true,
+                    full: true,
+
                 },
                 {
                     title: "GitHub",
                     description: "@NekTaf",
                     url: "https://github.com/NekTaf",
-                    icon: "solar:code-square-linear"
+                    icon: "solar:code-square-linear",
+                    image:"images/github.png"
                 },
                 {
                     title: "Google Scholar",
                     description: "",
                     url: "https://scholar.google.com/citations?user=k1RqAsAAAAAJ&hl=en",
-                    icon: "solar:user-id-linear"
+                    icon: "solar:user-id-linear",
+                    image:"images/google_scholar.png"
                 },
                 {
                     title: "LinkedIn",
                     description: "Nektarios Aristeidis Tafanidis",
                     url: "https://linkedin.com/in/nektarios-aristeidis-tafanidis-051777217",
-                    icon: "solar:user-id-linear"
+                    icon: "solar:user-id-linear",
+                    image:"images/Linkedin-Logo.png"
                 },
                 {
                     title: "ORCID",
                     description: "0009-0006-4456-5048",
                     url: "https://orcid.org/0009-0006-4456-5048",
-                    icon: "solar:user-id-linear"
+                    icon: "solar:user-id-linear",
+                    image:"images/ORCID_logo.svg.webp"
                 }
             ]
         };
@@ -235,6 +243,7 @@ canvas { outline: none; }
 
             {
                 name: "Education & Experience",
+                layout: "timeline",
                 size: 2,
                 distance: 10,
                 speed: 0.008,
@@ -242,28 +251,33 @@ canvas { outline: none; }
                 desc:"",
                 links: [
                     {
-                        title: "PhD Candidate (2023-Present)",
+                        date: "2023 — Present",
+                        title: "PhD Candidate",
                         description: "Luleå University of Technology\nResearch in autonomous spacecraft, reinforcement learning, and space robotics."
                     },
                     {
-                        title: "MSc in Autonomous Vehicle Dynamics and Control (2022-2023)",
+                        date: "2022 — 2023",
+                        title: "MSc in Autonomous Vehicle Dynamics and Control",
                         description: "Cranfield University"
                     },
                     {
-                        title: "Research Assistant in Control of Autonomous Surface Vehicles (Jun 2022 - Aug 2022) ",
-                        description: " Research Assistant developing an autonomous surface vehicle (UAV) for educational applications at Newcastle University."
-                    },
-
-                    {
-                        title: "President of Engineering Projects Society (2020-2022)",
-                        description: "Newcastle University society focusing on designing and manufacturing of remotely operated underwater vehicles (ROVs)"
+                        date: "Jun 2022 — Aug 2022",
+                        title: "Research Assistant in Control of Autonomous Surface Vehicles",
+                        description: "Newcastle University\nDeveloped an Unmanned Surface Vehicle (USV) for educational applications."
                     },
                     {
-                        title: "Research Assistant in AI (Jun 2021-Sep 2021)",
-                        description: "Research assistant in AI working on parallelizing Tsetlin Machine algorithm."
+                        date: "Jun 2021 — Sep 2021",
+                        title: "Research Assistant in Artificial Intelligence",
+                        description: "Newcastle University\nWorked on parallelizing the Tsetlin Machine algorithm.",
                     },
                     {
-                        title: "BEng in Electrical and Electronic Engineering (2019–2022)",
+                        date: "2020 — 2022",
+                        title: "President, Engineering Projects Society",
+                        description: "Newcastle University\nLed a student society focused on the design and manufacture of remotely operated underwater vehicles (ROVs)."
+                    },
+                    {
+                        date: "2019 — 2022",
+                        title: "BEng in Electrical and Electronic Engineering",
                         description: "Newcastle University"
                     }
                 ]
@@ -278,22 +292,39 @@ canvas { outline: none; }
                 ring: { inner: 2.0, outer: 3.0, color: 0xA3A3A3 }, // blue ring
                 color: 0xFF0000, // bright but desaturated blue
                 desc: "A list of selected academic publications.",
+                layout:"tiles",
                 links: [
                     {
-                        title: "Reinforcement learning-based station keeping using relative orbital elements",
+                        title: "Action-Bounded Safe Reinforcement Learning for Control of a Free-Floating Spacecraft Platform",
+                        description: "IFAC World Congress 2026",
+                        image: "images/ifac2026.png"
+                    },
+                    {
+                        title: "LEO-GYM: A Reinforcement Learning Library for Satellite Control in LEO",
+                        description: "1st IFAC Workshop on Control Aspects of Multi-Satellite Systems CAMSAT 2025",
+                        url: "https://www.sciencedirect.com/science/article/pii/S2405896326000807",
+                        image: "images/leogym2025.png"
+                    },
+                    {
+                        title: "Reinforcement Learning-Based Station Keeping Using Relative Orbital Elements",
                         description: "Advances in Space Research (2025)",
-                        url: "https://doi.org/10.1016/j.asr.2025.04.082"
+                        url: "https://doi.org/10.1016/j.asr.2025.04.082",
+                        image: "images/jaisr2025.png"
+
                     },
                     {
                         title: "Reinforcement Learning Based Intelligent Control for Low-thrust Tight Station Keeping in Low Earth Orbit",
                         description: "International Journal of Control, Automation and Systems (2025)",
-                        url: "https://doi.org/10.1007/s12555-024-0648-z"
+                        url: "https://doi.org/10.1007/s12555-024-0648-z",
+                        image: "images/jcas2025.png"
                     }
+                    
                 ]
             },
             {                    
 
                 name: "Projects",
+                layout: "tiles",
                 size: 2,
                 distance: 24,
                 speed: 0.004,
@@ -303,22 +334,26 @@ canvas { outline: none; }
                     {
                         title: "OPTACOM (2023-Present)",
                         description: "Autonomous and optimized orbit control management for a satellite cluster. A Collaboration between LTU, ESA, OHB and DLR.",
-                        url: "https://www.ohb-sweden.se/news-and-media/ohb-sweden-signs-contract-to-work-on-constellation-autonomy/"
+                        url: "https://www.ohb-sweden.se/news-and-media/ohb-sweden-signs-contract-to-work-on-constellation-autonomy/",
+                        image:"images/optacom.png"
                     },
                     {
                         title: "LEO-GYM (2023-Present)",
                         description: "An open-source reinforcement learning environment for satellite guidance, navigation, and control in Low Earth Orbit.",
-                        url: "https://github.com/NekTaf/leo_gym"
+                        url: "https://github.com/NekTaf/leo_gym",
+                        image:"images/leogym.gif"
                     },
                     {
                         title: "Autonomous Vineyard Inspection Robot using Behavior Trees (2023)",
-                        description: "Developed framework to utilize semantic and topological maps for navigation of an agribot with the purpose of autonomously inspecting a vineyard.",
-                        url: ""
+                        description: "As part of my masters thesis at Cranfield University I developed a framework to utilize semantic and topological maps for navigation of an agribot (Jackal UGV) with the purpose of autonomously inspecting a vineyard.",
+                        url: "",
+                        image:"images/inlanejacklpic.png"
                     },
                     {
                         title: "USV Dynamic Positioning System for Supporting AUV Operations (2022)",
-                        description: "Designed a miniature Unmanned Surface Vessel (USV) to act as a Dynamic Positioning system for Autonomous Underwater Vehicles (AUVs).",
-                        url: ""
+                        description: "As part of my bachelors thesis at Newcastle University I designed and manufactured a miniature Unmanned Surface Vessel (USV) to act as a Dynamic Positioning system to support Autonomous Underwater Vehicles (AUVs).",
+                        url: "",
+                        image:"images/ncl_dps.png"
                     },
 
                     // { label: "LEO-GYM — A Reinforcement Learning Library for Satellite Control in LEO", url: "https://github.com/NekTaf/leo_gym" },
@@ -326,10 +361,53 @@ canvas { outline: none; }
                 ]
             },
 
+
+            {
+                name: "Certificaitons and Licenses",
+                layout: "tiles",
+                size: 1.5,
+                distance: 30,
+                speed: 0.004,
+                color: 0x9E6733,  
+                links: [
+
+                    {
+                        title: "Unmanned Aircraft System Remote Pilot A2 Certificate of Competency (A2 CofC) 2022",
+                        description: "Issued by the UK Civil Aviation Authority ",
+                        url:"natafanidis.com/documents/ukcaa2023.pdf",
+                        image:"images/drone.png"
+                        
+                    },
+                    {
+                        title: "Newcastle University NCL+ Advanced Award in Business Basics 2021",
+                        description: "Course in Business Basics in collaboration with Newcastle University Business School (NUBS)",
+                        url:"https://openbadgefactory.com/v1/assertion/691b579bc2c77b3fff530fc9f6fb4251852e24a0",
+                        image:"images/ncl_busn.png"
+
+                    },
+                    {
+                        title: "Newcastle University Students' Union NCL+ Advanced Award in Leadership (Educational Leadership Centre) 2021",
+                        description: "Accredited by the Educational Leadership Centre",
+                        url:"https://openbadgefactory.com/v1/assertion/92365dbb1dbb3cec431483ad21f04143dc7ef5cf",
+                        image:"images/ncl_lead.png"
+                    },
+                    {
+                        title: "Newcastle University NCL+ award 2020",
+                        description: "Issued by Newcastle University",
+                        url:"https://openbadgepassport.com/app/badge/info/393270",
+                        image:"images/ncl+.png"
+
+                    },
+
+                ]
+            },
+
+
             {
                 name: "Awards",
+                layout:"tiles",
                 size: 1.5,
-                distance: 32,
+                distance: 36,
                 speed: 0.004,
                 color: 0xEDEDED,  
                 ring: { inner: 2.5, outer: 4.0, color: 0x6FA8DC },  
@@ -337,15 +415,21 @@ canvas { outline: none; }
                     {
                         title: "COSPAR Outstanding Paper Award",
                         description: "Recipient of the 2025 Outstanding Paper Award for Young Scientists, Committee on Space Research (COSPAR), 2025.",
+                        url:"natafanidis.com/documents/cospar2025.pdf",
+                        image:"images/LOGO-COSPAR.png"
                     },
                     {
                         title: "Best Poster Award",
                         description: "Best Poster, Intelligent Sensing and Communications Group, Newcastle University, 2022.",
+                        image:"images/ncllogo.png"
                     },
                     {
                         title: "2nd Place in the MAChallenge",
                         description: "2nd Place in the Marine Autonomy Challenge (MAChallenge), 2022.",
-                    }
+                        url:"https://www.maritimeindustries.org/events/marine-autonomy-challenge-machallenge",
+                        image:"images/smi.jpeg"
+
+                    },
                 ]
             },
 
@@ -604,6 +688,13 @@ canvas { outline: none; }
 
             panelLinks.innerHTML = '';
 
+            const isTiles = data.layout === "tiles";
+            const isTimeline = data.layout === "timeline";
+
+            panelLinks.className = isTiles
+                ? "grid grid-cols-2 gap-4"
+                : "flex flex-col gap-2";
+
             (data.links || []).forEach(link => {
                 const el = document.createElement(link.copy ? 'button' : 'a');
 
@@ -611,11 +702,18 @@ canvas { outline: none; }
                     el.type = 'button';
                     el.onclick = async () => {
                         await navigator.clipboard.writeText(link.value);
-                        el.querySelector('span').textContent = 'Copied!';
+
+                        const text = el.querySelector(".copy-text");
+                        const original = text.textContent;
+
+                        text.textContent = "Copied!";
+                        text.classList.add("text-green-400");
+
                         setTimeout(() => {
-                            el.querySelector('span').textContent = link.label;
+                            text.textContent = original;
+                            text.classList.remove("text-green-400");
                         }, 1500);
-                    };
+                    };                    
                 } else {
                     if (link.url) {
                         el.href = link.url;
@@ -623,19 +721,86 @@ canvas { outline: none; }
                         el.rel = "noopener noreferrer";
                     }
                 }
+                
+                if (isTiles) {
 
-                el.className = 'link-pill w-full flex items-center justify-between text-left px-3 py-2 rounded-lg text-sm text-neutral-300 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20';
-                el.innerHTML = `
-                    <div class="flex-1">
-                        <div class="font-medium text-white">${link.title}</div>
-                        <div class="text-xs text-neutral-400 mt-1">${link.description}</div>
+                    el.className =
+                        `group flex flex-col items-center text-center p-4 rounded-xl border transition ${
+                            link.full
+                                ? "col-span-2 bg-indigo-500/10 border-indigo-400/30"
+                                : "bg-white/5 border-white/10 hover:bg-white/10"
+                        }`;
+                    el.innerHTML = `
+                        ${link.image ? `
+                            <img
+                                src="${link.image}"
+                                class="w-64 h-28 object-contain mb-3"
+                                alt="${link.title}">
+                        ` : ''}
+
+                        <div class="font-medium text-white text-sm">
+                            ${link.title}
+                        </div>
+
+                        <div class="copy-text text-xs text-neutral-400 mt-1">
+                            ${link.description}
+                        </div>
+                    `;
+                } else if (isTimeline) {
+
+                    el.className = "";
+
+                    el.innerHTML = `
+                        <div class="relative pl-8 pb-8">
+
+                            <div class="absolute left-[7px] top-5 bottom-0 w-px bg-white/10"></div>
+
+                            <div class="absolute left-0 top-1 w-4 h-4 rounded-full bg-indigo-400 border-2 border-neutral-900"></div>
+
+                            <div class="text-xs uppercase tracking-wider text-neutral-500">
+                                ${link.date}
+                            </div>
+
+                            <div class="mt-1 font-medium text-white">
+                                ${link.title}
+                            </div>
+
+                            <div class="mt-1 text-sm text-neutral-400 whitespace-pre-line">
+                                ${link.description}
+                            </div>
+
+                        </div>
+                    `;
+                
+                    } else {
+
+                    el.className = 'link-pill w-full flex items-center justify-between text-left px-3 py-2 rounded-lg text-sm text-neutral-300 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20';
+                    el.innerHTML = `
+                    <div class="flex flex-col w-full">
+                        <div class="font-medium text-white mb-1">
+                            ${link.title}
+                        </div>
+
+                        <div class="text-sm text-neutral-400 leading-relaxed whitespace-pre-line">
+                            ${link.description}
+                        </div>
+
+                        ${link.image ? `
+                            <img
+                                src="${link.image}"
+                                style="width: ${link.imageWidth || '100%'};"
+                                class="mt-4 rounded-xl object-cover border border-white/10"
+                                alt="${link.title}">
+                        ` : ''}                
                     </div>
 
                     <iconify-icon
+                        class="ml-3 flex-shrink-0"
                         icon="${link.copy ? 'solar:copy-linear' : 'solar:arrow-right-up-linear'}"
                         width="16">
                     </iconify-icon>
-                `;
+                    `;
+                }
 
                 panelLinks.appendChild(el);
             });
@@ -666,7 +831,7 @@ canvas { outline: none; }
         if (window.innerWidth < 768) {
             setPanelWidth(window.innerWidth * 0.85);
         } else {
-            setPanelWidth(window.innerWidth * 0.3);
+            setPanelWidth(window.innerWidth * 0.4);
         }
         let isResizingPanel = false;
         let resizeStartX = 0;
