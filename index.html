@@ -67,8 +67,7 @@ canvas { outline: none; }
 }
 </style>
 </head>
-<body class="bg-neutral-950 text-neutral-200 overflow-hidden w-screen h-screen relative select-none">
-
+<body class="bg-neutral-950 text-neutral-200 overflow-hidden w-screen h-screen relative">
     <!-- Canvas Container -->
     <div id="canvas-container" class="absolute inset-0 z-0"></div>
 
@@ -193,7 +192,7 @@ canvas { outline: none; }
             layout:"tiles",
             // type: "About Me",
             image: "images/me.jpeg",
-            desc: "My name is Nektarios, and I am currently a PhD candidate at Luleå University of Technology in northern Sweden, where I conduct research in space autonomy and robotics using reinforcement learning. My work focuses on developing intelligent and safe autonomous systems for future space missions.\n\nI have a background in aerospace and electrical and electronic engineering and hold a MSc in Autonomous Vehicle Dynamics and Control from Cranfield University and a BEng in Electrical and Electronic Engineering from Newcastle University.\n\n In my free time, I practice fencing (épée) and kendo and go mountain biking. I am also passionate about history and paleontology, and I enjoy playing real-time strategy (RTS) games. ",            
+            desc: "My name is Nektarios, and I am currently a PhD candidate at Luleå University of Technology in northern Sweden, where I conduct research in space autonomy and robotics using reinforcement learning. My work focuses on developing intelligent and safe autonomous systems for future space missions.\n\nI have a background in aerospace and electrical and electronic engineering and hold a MSc in Autonomous Vehicle Dynamics and Control from Cranfield University and a BEng in Electrical and Electronic Engineering from Newcastle University.\n\nThroughout my academic and research career, I have worked across the full autonomy stack, from theoretical algorithm development to real-world implementation and validation on autonomous robotic systems. My experience spans autonomous ground, aerial, surface, underwater, and, most recently, space robotic systems and satellites.\n\n In my free time, I practice fencing (épée) and kendo and go mountain biking. I am also passionate about history and paleontology, and I enjoy playing real-time strategy (RTS) games. ",            
             links: [
                 {
                     title: "Email",
@@ -231,7 +230,15 @@ canvas { outline: none; }
                     url: "https://orcid.org/0009-0006-4456-5048",
                     icon: "solar:user-id-linear",
                     image:"images/ORCID_logo.svg.webp"
-                }
+                },
+                {
+                    title: "ResearchGate",
+                    description: "",
+                    url: "https://www.researchgate.net/profile/Nektarios-Tafanidis",
+                    icon: "solar:code-square-linear",
+                    image:"images/rg.jpg"
+                },
+
             ]
         };
         
@@ -244,16 +251,24 @@ canvas { outline: none; }
             {
                 name: "Education & Experience",
                 layout: "timeline",
-                size: 2,
-                distance: 10,
-                speed: 0.008,
-                color: 0xFF00D4,
+                size: 2.80,
+                distance: 36,
+                speed: 0.0035,
+                color: 0x42D4E8,
+                ring: {
+                    inner: 3.3,
+                    outer: 3.7,
+                    color: 0xE6E2D6
+                },
                 desc:"",
                 links: [
                     {
                         date: "2023 — Present",
                         title: "PhD Candidate",
-                        description: "Luleå University of Technology\nResearch in autonomous spacecraft, reinforcement learning, and space robotics."
+                        description: "Luleå University of Technology\nResearch in autonomous spacecraft, reinforcement learning, and space robotics."+
+                        "\n• Co-supervisor for MSc thesis projects."+
+                        "\n• Teaching assistant in Industrial Automation (R7008E) course."+
+                        "\n• Delivered PhD-level course in Reinforcement Learning "
                     },
                     {
                         date: "2022 — 2023",
@@ -286,11 +301,15 @@ canvas { outline: none; }
 
             {
                 name: "Publications",
-                size: 1.4,
-                distance: 17,
-                speed: 0.01,
-                ring: { inner: 2.0, outer: 3.0, color: 0xA3A3A3 }, // blue ring
-                color: 0xFF0000, // bright but desaturated blue
+                size: 2.50,
+                distance: 49,
+                speed: 0.0025,
+                color: 0xE7D8A0,
+                ring: {
+                    inner: 3.1,
+                    outer: 4.8,
+                    color: 0xCFC8B5
+                },
                 desc: "A list of selected academic publications.",
                 layout:"tiles",
                 links: [
@@ -325,10 +344,10 @@ canvas { outline: none; }
 
                 name: "Projects",
                 layout: "tiles",
-                size: 2,
-                distance: 24,
-                speed: 0.004,
-                color: 0x00FF62,
+                size: 1.90,
+                distance: 26,
+                speed: 0.005,
+                color: 0xC62828,
                 desc: "A selection of research and software projects I have worked on.",
                 links: [
                     {
@@ -363,12 +382,12 @@ canvas { outline: none; }
 
 
             {
-                name: "Certificaitons and Licenses",
+                name: "Certifications & Licenses",
                 layout: "tiles",
-                size: 1.5,
-                distance: 30,
-                speed: 0.004,
-                color: 0x9E6733,  
+                size: 1.45,
+                distance: 14,
+                speed: 0.009,
+                color: 0xC68642,
                 links: [
 
                     {
@@ -406,17 +425,26 @@ canvas { outline: none; }
             {
                 name: "Awards",
                 layout:"tiles",
-                size: 1.5,
-                distance: 36,
-                speed: 0.004,
-                color: 0xEDEDED,  
-                ring: { inner: 2.5, outer: 4.0, color: 0x6FA8DC },  
+                size: 1.65,
+                distance: 19,
+                speed: 0.007,
+                color: 0x3FD27A,
+                ring: {
+                    inner: 2,
+                    outer: 2.2,
+                    color: 0xE6E2D6
+                },
                 links: [
                     {
                         title: "COSPAR Outstanding Paper Award",
                         description: "Recipient of the 2025 Outstanding Paper Award for Young Scientists, Committee on Space Research (COSPAR), 2025.",
                         url:"documents/cospar2025.pdf",
                         image:"images/LOGO-COSPAR.png"
+                    },
+                    {
+                        title: "Cranfield Scholarship",
+                        description: "Scholarship to fund my MSc degree at Cranfield University, September 2022.",
+                        image:"images/Cranfield-Logo_Colour-2.png"
                     },
                     {
                         title: "Best Poster Award",
@@ -428,9 +456,46 @@ canvas { outline: none; }
                         description: "2nd Place in the Marine Autonomy Challenge (MAChallenge), 2022.",
                         url:"https://www.maritimeindustries.org/events/marine-autonomy-challenge-machallenge",
                         image:"images/smi.jpeg"
-
                     },
+                    {
+                        title: "First Robot Movement and Best Design awards",
+                        description: "Unibots Competition, 2022.",
+                        image:"images/unibots.png"
+                    },
+                    {
+                        title: "Engineering Excellence Scholarship",
+                        description: "Recipient of the Newcastle University Engineering Excellence Award, awarded for outstanding academic achievement, 2019.",
+                        image:"images/ncllogo.png"
+                    },
+
                 ]
+            },  
+            {
+                name: "Volunteering",
+                //layout:"tiles",
+                size: 1.15,
+                distance: 10,
+                speed: 0.012,
+                color: 0x8C939F,  
+                //ring: { inner: 2.5, outer: 4.0, color: 0x6FA8DC },  
+                links: [
+                    {
+                        title: "Invited Journal Peer Reviewer (Present)",
+                        description: "Invited to review manuscripts for Advances in Space Research, Acta Astronautica, CEAS space journal.",
+                    },
+                    {
+                        title: "Guest Speaker (2022)",
+                        description: "Gave a presentation on underwater vehicles in the 2022 Stage-1 MA T&I Mock Conference at Newcastle University",
+                    },
+                    {
+                        title: "Peer Mentor (2020—2022)",
+                        description: "Newcastle University Students' Union",
+                    },
+                    {
+                        title: "Student Representative (2020—2022)",
+                        description: "Newcastle University Students' Union",
+                    },
+                ]//SAgE Data Insights Bootcamp
             },
 
             /* --- Commented out for now: uncomment and fill in to bring back more sections ---
@@ -831,7 +896,7 @@ canvas { outline: none; }
         if (window.innerWidth < 768) {
             setPanelWidth(window.innerWidth * 0.85);
         } else {
-            setPanelWidth(window.innerWidth * 0.4);
+            setPanelWidth(window.innerWidth * 0.45);
         }
         let isResizingPanel = false;
         let resizeStartX = 0;
