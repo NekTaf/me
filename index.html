@@ -890,7 +890,7 @@ canvas { outline: none; }
         // and can be dragged wider/narrower via the handle on its left edge.
         function setPanelWidth(px) {
             const minW = 260;
-            const maxW = window.innerWidth * 0.85;
+            const maxW = window.innerWidth * 0.95;
             sidePanel.style.width = Math.max(minW, Math.min(maxW, px)) + 'px';
         }
         if (window.innerWidth < 768) {
