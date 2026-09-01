@@ -23,7 +23,19 @@
   body{
     margin:0;
     background-color:var(--bg);
-    background-repeat:no-repeat;
+    background-image:
+      radial-gradient(circle at 10% 15%, rgba(237,237,234,0.55) 0, rgba(237,237,234,0.55) 1px, transparent 1.2px),
+      radial-gradient(circle at 35% 60%, rgba(237,237,234,0.4) 0, rgba(237,237,234,0.4) 1px, transparent 1.2px),
+      radial-gradient(circle at 60% 25%, rgba(237,237,234,0.5) 0, rgba(237,237,234,0.5) 1px, transparent 1.2px),
+      radial-gradient(circle at 80% 70%, rgba(237,237,234,0.35) 0, rgba(237,237,234,0.35) 1px, transparent 1.2px),
+      radial-gradient(circle at 15% 85%, rgba(237,237,234,0.45) 0, rgba(237,237,234,0.45) 1px, transparent 1.2px),
+      radial-gradient(circle at 50% 45%, rgba(237,237,234,0.3) 0, rgba(237,237,234,0.3) 1px, transparent 1.2px),
+      radial-gradient(circle at 90% 10%, rgba(237,237,234,0.5) 0, rgba(237,237,234,0.5) 1px, transparent 1.2px),
+      radial-gradient(circle at 25% 40%, rgba(237,237,234,0.35) 0, rgba(237,237,234,0.35) 1px, transparent 1.2px),
+      radial-gradient(circle at 70% 90%, rgba(237,237,234,0.4) 0, rgba(237,237,234,0.4) 1px, transparent 1.2px),
+      radial-gradient(circle at 45% 8%, rgba(237,237,234,0.32) 0, rgba(237,237,234,0.32) 1px, transparent 1.2px);
+    background-size:280px 280px;
+    background-repeat:repeat;
     color:var(--fg);
     font-family:'Newsreader', Georgia, serif;
     font-size:17px;
@@ -35,7 +47,6 @@
     margin:0 auto;
     padding:0 24px 120px;
   }
-
   /* ---------- Header / About ---------- */
   header{
     padding-top:96px;
@@ -90,7 +101,6 @@
     max-width:58ch;
   }
   .bio p:last-child{margin-bottom:0;}
-
   /* ---------- Section scaffolding ---------- */
   section{
     padding:48px 0;
@@ -102,7 +112,6 @@
     margin:0 0 28px;
     color:var(--blue);
   }
-
   /* ---------- News ---------- */
   .news-item{
     display:flex;
@@ -119,7 +128,6 @@
     font-variant-numeric:tabular-nums;
   }
   .news-text{flex:1;}
-
   /* ---------- Publications ---------- */
   .pub{
     display:flex;
@@ -174,13 +182,7 @@
     border-bottom:1px solid transparent;
   }
   .pub-links a:hover{border-bottom-color:var(--blue);}
-  .pub-links .disabled{
-    color:var(--muted);
-    border-bottom:1px solid transparent;
-  }
-
   /* ---------- Award badge ---------- */
-
   .award-badge{
     display:inline-block;
     margin:0 0 10px;
@@ -191,7 +193,6 @@
     font-size:12px;
     letter-spacing:.01em;
   }
-
   /* ---------- Experience ---------- */
   .exp{
     display:flex;
@@ -210,7 +211,6 @@
   .exp-org{margin:0 0 6px; color:var(--muted); font-size:14.5px;}
   .exp-desc{margin:0; font-size:15px; color:var(--fg); opacity:.92;}
   .exp-desc + .exp-desc{margin-top:4px;}
-
   /* ---------- Simple lists (awards / volunteering) ---------- */
   .simple-list{margin:0; padding:0; list-style:none;}
   .simple-list li{
@@ -235,7 +235,6 @@
     white-space:nowrap;
     padding-top:1px;
   }
-
   /* ---------- Projects ---------- */
   .proj{
     display:flex;
@@ -279,6 +278,11 @@
     border-bottom:1px solid transparent;
   }
   .proj-title a:hover{border-bottom-color:var(--orange);}
+  .proj-date{
+    color:var(--muted);
+    font-size:14px;
+    margin:0 0 10px;
+  }
   .proj-desc{
     margin:0;
     font-size:15px;
@@ -286,7 +290,6 @@
     opacity:.92;
     max-width:56ch;
   }
-
   .links{
     padding-top:28px;
     display:flex;
@@ -303,8 +306,15 @@
 
   @media (max-width:520px){
     header{padding-top:64px;}
-    .photo{float:none; margin:0 0 24px; max-width:160px;}
-    .photo img{max-width:160px;}
+    .photo{
+      float:left;
+      max-width:110px;
+      margin:4px 18px 12px 0;
+    }
+    .photo img{max-width:110px;}
+    .photo.missing{width:110px; height:110px;}
+    h1{font-size:23px;}
+    .role{font-size:14.5px; margin-bottom:16px;}
     .exp, .pub, .proj{flex-direction:column; gap:8px;}
     .exp-date{width:auto;}
     .pub-thumb, .proj-thumb{width:88px; height:88px;}
@@ -314,7 +324,6 @@
 </head>
 <body>
 <div class="wrap">
-
   <!-- ===== About ===== -->
   <header>
     <div class="photo" id="profilePhoto">
@@ -339,36 +348,28 @@
       </div>
     </div>
   </header>
-
   <!-- ===== News ===== -->
   <section id="news">
     <h2>News</h2>
     <div class="news-item">
       <div class="news-date">August — 2026</div>
-      <div class="news-text">Attended and presented my paper at the IFAC World Congress 2026.</div>
+      <div class="news-text">Presented my paper at the IFAC World Congress 2026.</div>
     </div>
     <div class="news-item">
       <div class="news-date">June — 2026</div>
       <div class="news-text">Received the COSPAR Outstanding Paper Award for Young Scientists.</div>
     </div>
   </section>
-
   <!-- ===== Publications ===== -->
   <section id="publications">
     <h2>Publications</h2>
-
     <div class="pub">
       <div class="pub-thumb"><img src="images/ifac2026.png" alt="" onerror="this.parentElement.classList.add('missing')"></div>
       <div class="pub-body">
         <p class="pub-title">Action-Bounded Safe Reinforcement Learning for Control of a Free-Floating Spacecraft Platform</p>
         <p class="pub-venue">IFAC World Congress, 2026</p>
-        <div class="pub-links">
-          <span class="disabled">PDF</span>
-          <span class="disabled">Project</span>
-        </div>
       </div>
     </div>
-
     <div class="pub">
       <div class="pub-thumb"><img src="images/leogym2025.png" alt="" onerror="this.parentElement.classList.add('missing')"></div>
       <div class="pub-body">
@@ -376,12 +377,10 @@
         <p class="pub-venue">1st IFAC Workshop on Control Aspects of Multi-Satellite Systems (CAMSAT), 2025</p>
         <div class="pub-links">
           <a href="https://www.sciencedirect.com/science/article/pii/S2405896326000807" target="_blank" rel="noopener">Paper</a>
-          <span class="disabled">PDF</span>
           <a href="https://github.com/NekTaf/leo_gym" target="_blank" rel="noopener">Project</a>
         </div>
       </div>
     </div>
-
     <div class="pub">
       <div class="pub-thumb award"><img src="images/jaisr2025.png" alt="" onerror="this.parentElement.classList.add('missing')"></div>
       <div class="pub-body">
@@ -390,12 +389,9 @@
         <p class="award-badge">COSPAR Outstanding Paper Award for Young Scientists, 2025</p>
         <div class="pub-links">
           <a href="https://doi.org/10.1016/j.asr.2025.04.082" target="_blank" rel="noopener">Paper</a>
-          <span class="disabled">PDF</span>
-          <span class="disabled">Project</span>
         </div>
       </div>
     </div>
-
     <div class="pub">
       <div class="pub-thumb"><img src="images/jcas2025.png" alt="" onerror="this.parentElement.classList.add('missing')"></div>
       <div class="pub-body">
@@ -403,54 +399,49 @@
         <p class="pub-venue">International Journal of Control, Automation and Systems, 2025</p>
         <div class="pub-links">
           <a href="https://doi.org/10.1007/s12555-024-0648-z" target="_blank" rel="noopener">Paper</a>
-          <span class="disabled">PDF</span>
-          <span class="disabled">Project</span>
         </div>
       </div>
     </div>
   </section>
-
   <!-- ===== Projects ===== -->
   <section id="projects">
     <h2>Projects</h2>
-
     <div class="proj">
       <div class="proj-thumb"><img src="images/optacom.png" alt="" onerror="this.parentElement.classList.add('missing')"></div>
       <div class="proj-body">
         <p class="proj-title"><a href="https://www.ohb-sweden.se/news-and-media/ohb-sweden-signs-contract-to-work-on-constellation-autonomy/" target="_blank" rel="noopener">OPTACOM</a></p>
-        <p class="proj-desc">Autonomous and optimized orbit control management for a satellite cluster. A collaboration between LTU, ESA, OHB, and DLR. 2023 — Present.</p>
+        <p class="proj-date">2023 — Present</p>
+        <p class="proj-desc">Autonomous and optimized orbit control management for a satellite cluster. A collaboration between LTU, ESA, OHB, and DLR.</p>
       </div>
     </div>
-
     <div class="proj">
       <div class="proj-thumb"><img src="images/leogym.gif" alt="" onerror="this.parentElement.classList.add('missing')"></div>
       <div class="proj-body">
         <p class="proj-title"><a href="https://github.com/NekTaf/leo_gym" target="_blank" rel="noopener">LEO-GYM</a></p>
-        <p class="proj-desc">Open-source reinforcement learning environment for satellite guidance, navigation, and control in Low Earth Orbit. 2023 — Present.</p>
+        <p class="proj-date">2023 — Present</p>
+        <p class="proj-desc">Open-source reinforcement learning environment for satellite guidance, navigation, and control in Low Earth Orbit.</p>
       </div>
     </div>
-
     <div class="proj">
       <div class="proj-thumb"><img src="images/inlanejacklpic.png" alt="" onerror="this.parentElement.classList.add('missing')"></div>
       <div class="proj-body">
         <p class="proj-title">Autonomous Vineyard Inspection Robot</p>
-        <p class="proj-desc">MSc thesis, Cranfield University. Framework using semantic and topological maps for navigation of an agribot (Jackal UGV) to autonomously inspect a vineyard. 2023.</p>
+        <p class="proj-date">2023</p>
+        <p class="proj-desc">MSc thesis, Cranfield University. Framework using semantic and topological maps for navigation of an agribot (Jackal UGV) to autonomously inspect a vineyard.</p>
       </div>
     </div>
-
     <div class="proj">
       <div class="proj-thumb"><img src="images/ncl_dps.png" alt="" onerror="this.parentElement.classList.add('missing')"></div>
       <div class="proj-body">
         <p class="proj-title">USV Dynamic Positioning System</p>
-        <p class="proj-desc">BEng thesis, Newcastle University. Miniature Unmanned Surface Vessel acting as a Dynamic Positioning system to support Autonomous Underwater Vehicle (AUV) operations. 2022.</p>
+        <p class="proj-date">2022</p>
+        <p class="proj-desc">BEng thesis, Newcastle University. Miniature Unmanned Surface Vessel acting as a Dynamic Positioning system to support Autonomous Underwater Vehicle (AUV) operations.</p>
       </div>
     </div>
   </section>
-
   <!-- ===== Experience ===== -->
   <section id="experience">
     <h2>Experience</h2>
-
     <div class="exp">
       <div class="exp-date">2023 — Present</div>
       <div class="exp-body">
@@ -459,7 +450,6 @@
         <p class="exp-desc">Research in autonomous spacecraft, reinforcement learning, and space robotics. Co-supervisor for MSc thesis projects. Teaching assistant in Industrial Automation (R7008E). Delivered a PhD-level course in Reinforcement Learning.</p>
       </div>
     </div>
-
     <div class="exp">
       <div class="exp-date">2022 — 2023</div>
       <div class="exp-body">
@@ -468,7 +458,6 @@
         <p class="exp-desc">UAS dynamics and control, sensor fusion and state estimation, guidance and navigation, advanced and nonlinear control, AI and deep learning, aerial communication systems.</p>
       </div>
     </div>
-
     <div class="exp">
       <div class="exp-date">Jun — Aug 2022</div>
       <div class="exp-body">
@@ -477,7 +466,6 @@
         <p class="exp-desc">Developed an Unmanned Surface Vehicle (USV) for educational applications.</p>
       </div>
     </div>
-
     <div class="exp">
       <div class="exp-date">Jun — Sep 2021</div>
       <div class="exp-body">
@@ -486,7 +474,6 @@
         <p class="exp-desc">Worked on parallelizing the Tsetlin Machine algorithm.</p>
       </div>
     </div>
-
     <div class="exp">
       <div class="exp-date">2020 — 2022</div>
       <div class="exp-body">
@@ -495,7 +482,6 @@
         <p class="exp-desc">President (2021–22): led the society across marine, electrical, and automation sub-teams, budget planning, and social events. Project Manager (2020–21): coordinated sub-teams, timelines, and task allocation for ROV and ASV builds.</p>
       </div>
     </div>
-
     <div class="exp">
       <div class="exp-date">2019 — 2022</div>
       <div class="exp-body">
@@ -505,7 +491,6 @@
       </div>
     </div>
   </section>
-
   <!-- ===== Awards ===== -->
   <section id="awards">
     <h2>Awards</h2>
@@ -537,6 +522,28 @@
     </ul>
   </section>
 
+  <!-- ===== Certifications ===== -->
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <ul class="simple-list">
+      <li>
+        <span class="item-title">Unmanned Aircraft System Remote Pilot A2 Certificate of Competency (A2 CofC)<span class="item-sub">UK Civil Aviation Authority</span></span>
+        <span class="item-date">2022</span>
+      </li>
+      <li>
+        <span class="item-title">NCL+ Advanced Award in Business Basics<span class="item-sub">Newcastle University Business School</span></span>
+        <span class="item-date">2021</span>
+      </li>
+      <li>
+        <span class="item-title">NCL+ Advanced Award in Leadership<span class="item-sub">Educational Leadership Centre</span></span>
+        <span class="item-date">2021</span>
+      </li>
+      <li>
+        <span class="item-title">NCL+ Award<span class="item-sub">Newcastle University</span></span>
+        <span class="item-date">2020</span>
+      </li>
+    </ul>
+  </section>
   <!-- ===== Volunteering ===== -->
   <section id="volunteering">
     <h2>Volunteering</h2>
@@ -559,7 +566,6 @@
       </li>
     </ul>
   </section>
-
 </div>
 </body>
 </html>
