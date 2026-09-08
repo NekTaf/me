@@ -837,7 +837,9 @@ canvas { outline: none; }
 
             panelLinks.className = isTiles
                 ? "grid grid-cols-2 gap-4"
-                : "flex flex-col gap-2";
+                : isTimeline
+                    ? "flex flex-col gap-0"
+                    : "flex flex-col gap-2";
 
             (data.links || []).forEach(link => {
                 const el = document.createElement(link.copy ? 'button' : 'a');
@@ -892,15 +894,13 @@ canvas { outline: none; }
                     `;
                 } else if (isTimeline) {
 
-                    el.className = "";
+                    el.className = "block w-full";
 
                     el.innerHTML = `
-                        <div class="relative pl-8 pb-8">
+                        <div class="relative ml-2 pl-6 pb-8 border-l border-white/30">
 
-                            <div class="absolute left-[7px] top-5 bottom-0 w-px bg-white/10"></div>
-
-                            <div class="absolute left-0 top-1 w-4 h-4 rounded-full bg-indigo-400 border-2 border-neutral-900"></div>
-
+                            <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-indigo-400 border-2 border-neutral-900"></div>
+                            
                             <div class="text-xs uppercase tracking-wider text-amber-400">
                                 ${link.date}
                             </div>
