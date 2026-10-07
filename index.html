@@ -334,7 +334,17 @@ canvas { outline: none; }
                 },
                 desc: "A list of selected academic publications.",
                 layout:"tiles",
+                imageWidth: "w-full",
+                imageHeight: "h-80",
                 links: [
+                    {
+                        title: "Safe-by-design Reinforcement Learning with CBF-Derived Admissible Action Sets: Experimental Validation on a Satellite Emulator",
+                        description: "Space Robotics Workshop 2026",
+                        image: "images/srw2026.png",
+                        pdf:"https://openreview.net/challenge?redirect=%2Fpdf%3Fid%3DSpqHwevxu3",
+                        video:"https://www.youtube.com/watch?v=R1rrYKRnr-Y",
+                    },
+
                     {
                         title: "Action-Bounded Safe Reinforcement Learning for Control of a Free-Floating Spacecraft Platform",
                         description: "IFAC World Congress 2026",
@@ -343,20 +353,20 @@ canvas { outline: none; }
                     {
                         title: "LEO-GYM: A Reinforcement Learning Library for Satellite Control in LEO",
                         description: "1st IFAC Workshop on Control Aspects of Multi-Satellite Systems CAMSAT 2025",
-                        url: "https://www.sciencedirect.com/science/article/pii/S2405896326000807",
+                        pdf: "https://www.sciencedirect.com/science/article/pii/S2405896326000807",
                         image: "images/leogym2025.png"
                     },
                     {
                         title: "Reinforcement Learning-Based Station Keeping Using Relative Orbital Elements",
                         description: "Advances in Space Research (2025)",
-                        url: "https://doi.org/10.1016/j.asr.2025.04.082",
+                        pdf: "https://doi.org/10.1016/j.asr.2025.04.082",
                         image: "images/jaisr2025.png"
 
                     },
                     {
                         title: "Reinforcement Learning Based Intelligent Control for Low-thrust Tight Station Keeping in Low Earth Orbit",
                         description: "International Journal of Control, Automation and Systems (2025)",
-                        url: "https://doi.org/10.1007/s12555-024-0648-z",
+                        pdf: "https://doi.org/10.1007/s12555-024-0648-z",
                         image: "images/jcas2025.png"
                     }
                     
@@ -366,6 +376,8 @@ canvas { outline: none; }
 
                 name: "Projects",
                 layout: "tiles",
+                imageWidth: "w-full",
+                imageHeight: "h-80",
                 size: 1.90,
                 distance: 26,
                 speed: 0.005,
@@ -544,7 +556,9 @@ canvas { outline: none; }
             {
                 name: "News",
                 // type: "News",
-                layout: "list",
+                layout: "tiles",
+                imageWidth: "w-full",
+                imageHeight: "h-80",
                 size: 1.3,
                 distance: 60,
                 speed: 0.002,
@@ -552,16 +566,31 @@ canvas { outline: none; }
                 desc: "",
                 links: [
                     {
+                        title: "September 2026",
+                        description: "I had the opportunity to attend IROS 2026, and attend the Space Robotics Workshop, where I presented our work titled: Safe-by-design Reinforcement Learning with CBF-Derived Admissible Action Sets: Experimental Validation on a Satellite Emulator",
+                        url:"https://space-robots.org/events/iros2026/#:~:text=Safe%2Dby%2Ddesign,VIDEO",
+                        image: "images/iros2026.png"
+                    },
+
+                    {
                         title: "August 2026",
-                        description: "I had the opportunity to attend the IFAC World Congress 2026 in Busan, and present our paper titled: Action-Bounded Safe Reinforcement Learning for Control of a Free-Floating Spacecraft Platform."
+                        description: "I had the opportunity to attend the IFAC World Congress 2026 in Busan, and present our paper titled: Action-Bounded Safe Reinforcement Learning for Control of a Free-Floating Spacecraft Platform.",
+                        image: "images/ifac2026n.png"
+
                     },
                     {
                         title: "June 2026",
-                        description: "I was honored to receive the COSPAR Outstanding Paper Award for Young Scientists, for our paper titled: Reinforcement Learning-Based Station Keeping Using Relative Orbital Elements."
+                        description: "I was honored to receive the COSPAR Outstanding Paper Award for Young Scientists, for our paper titled: Reinforcement Learning-Based Station Keeping Using Relative Orbital Elements.",
+                        image: "images/cospar2026.png",
+                        url:"documents/cospar2025.pdf",
+
                     },
                     {
                         title: "October 2025",
-                        description: "I had the opportunity to attend the 1st IFAC Workshop on Control Aspects of Multi-Satellite Systems in Würzburg, and present our paper on LEO-GYM."
+                        image:"images/nusu.png",
+                        description: "I had the opportunity to attend the 1st IFAC Workshop on Control Aspects of Multi-Satellite Systems (CAMSAT) in Würzburg, and present our paper on LEO-GYM.",
+                        image: "images/camsat2025.jpeg",
+                        
                     }
                 ]
             },
@@ -842,7 +871,8 @@ canvas { outline: none; }
                     : "flex flex-col gap-2";
 
             (data.links || []).forEach((link, index) => {
-                const el = document.createElement(link.copy ? 'button' : 'a');
+                const hasMediaLinks = isTiles && (link.pdf || link.video || link.project);
+                const el = document.createElement(link.copy ? 'button' : (hasMediaLinks ? 'div' : 'a'));
 
                 if (link.copy) {
                     el.type = 'button';
@@ -859,8 +889,8 @@ canvas { outline: none; }
                             text.textContent = original;
                             text.classList.remove("text-green-400");
                         }, 1500);
-                    };                    
-                } else {
+                    };
+                } else if (!hasMediaLinks) {
                     if (link.url) {
                         el.href = link.url;
                         el.target = "_blank";
@@ -880,7 +910,7 @@ canvas { outline: none; }
                         ${link.image ? `
                             <img
                                 src="${link.image}"
-                                class="w-64 h-28 object-contain mb-3"
+                                class="${data.imageWidth || 'w-64'} ${data.imageHeight || 'h-28'} object-contain mb-3"
                                 alt="${link.title}">
                         ` : ''}
 
@@ -891,6 +921,35 @@ canvas { outline: none; }
                         <div class="copy-text text-xs text-neutral-400 mt-1">
                             ${link.description}
                         </div>
+
+                        ${hasMediaLinks ? `
+                        <div class="flex items-center justify-center gap-2 mt-3">
+                            ${link.pdf ? `
+                                <a href="${link.pdf}" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 text-xs text-neutral-300 hover:bg-white/20 hover:text-white transition"
+                                    title="PDF">
+                                    <iconify-icon icon="solar:file-text-linear" width="14"></iconify-icon>
+                                    PDF
+                                </a>
+                            ` : ''}
+                            ${link.video ? `
+                                <a href="${link.video}" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 text-xs text-neutral-300 hover:bg-white/20 hover:text-white transition"
+                                    title="Video">
+                                    <iconify-icon icon="solar:play-circle-linear" width="14"></iconify-icon>
+                                    Video
+                                </a>
+                            ` : ''}
+                            ${link.project ? `
+                                <a href="${link.project}" target="_blank" rel="noopener noreferrer"
+                                    class="flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 text-xs text-neutral-300 hover:bg-white/20 hover:text-white transition"
+                                    title="Project Page">
+                                    <iconify-icon icon="solar:link-linear" width="14"></iconify-icon>
+                                    Project
+                                </a>
+                            ` : ''}
+                        </div>
+                        ` : ''}
                     `;
                 } else if (isTimeline) {
 
@@ -909,7 +968,7 @@ canvas { outline: none; }
                                 ${link.date}
                             </div>
 
-                            <div class="mt-1 font-medium text-white">
+                            <div class="mt-1 text-base font-medium text-white">
                                 ${link.title}
                             </div>
 
